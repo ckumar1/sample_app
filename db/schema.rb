@@ -14,11 +14,11 @@
 ActiveRecord::Schema.define(version: 20131217044048) do
 
   create_table "users", force: true do |t|
-    t.string   "name"
-    t.string   "email"
+    t.string "name"
+    t.string "email"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "password_digest"
+    t.string "password_digest"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
