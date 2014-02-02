@@ -2,6 +2,7 @@ SampleApp::Application.routes.draw do
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :microposts, only: [:create, :destroy]
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
