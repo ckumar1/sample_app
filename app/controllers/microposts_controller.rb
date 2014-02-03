@@ -5,8 +5,18 @@ class MicropostsController < ApplicationController
   def create
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
-      flash[:success] = "Micropost created!"
-      redirect_to root_url
+	usernames = extract_mentioned_screen_names(@micropost.content)
+	@mention_id = @micropost.id
+	unless usernames.empty?
+		usernames.each do |i|
+			@mention_user= User.find_by_name(i).id
+			@final = Mention.new(user_id: @mention_user, micropost_id: @mention_id)
+			@final.save
+			
+		end
+	end
+       flash[:success] = "Micropost created!"
+       redirect_to root_url
     else
       @feed_items = []
       render 'static_pages/home'

@@ -30,6 +30,12 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
 
+  def mentions
+    @title = "Mentions"
+    @user = User.find(params[:id])
+    @users = @user.mentioned_users.paginate(page: params[:page])
+    render 'show_mentions'
+  end
 
   def new
     @user = User.new

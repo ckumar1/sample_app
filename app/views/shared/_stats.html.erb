@@ -12,4 +12,11 @@
     </strong>
     followers
   </a>
+  
+  <a href="<%= mentions_user_path(@user) %>">
+    <strong id="followers" class="stat">
+      <%= @user.mentioned_users.count %>
+    </strong>
+    mentions
+  </a>
 </div>

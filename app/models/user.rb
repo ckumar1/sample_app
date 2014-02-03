@@ -13,8 +13,11 @@ class User < ActiveRecord::Base
   has_many :followers, through: :reverse_relationships, source: :follower
 
 
+  has_many :mentioned_users, through: :mentions, source: :micropost
+  has_many :mentions, foreign_key: "user_id", dependent: :destroy
+
   #Name Validations
-  validates :name, presence: true, length: {maximum: 50}
+  validates :name, presence: true, length: {maximum: 50}, uniqueness: true
 
   #Email Validations
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
@@ -50,6 +53,9 @@ class User < ActiveRecord::Base
     Digest::SHA1.hexdigest(token.to_s)
   end
 
+  def mention?(other_user)
+	mentions.find_by(user_id: other_user.id)	
+  end
   private
 
   def create_remember_token
