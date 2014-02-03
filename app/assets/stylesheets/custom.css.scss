@@ -2,7 +2,7 @@
 
 /* mixins, variables, etc. */
 
-$grayMediumLight: #eaeaea;
+$grayMediumLight: #ff0000;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -54,7 +54,7 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: $grayLight;
+  color: $red;
 }
 
 p {
@@ -64,18 +64,24 @@ p {
 
 /* header */
 
+.navbar-custom {
+    background-color:#f00;
+    color:#f00;
+    border-radius:0;
+}
+
 #logo {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: white;
+  color: red;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
   line-height: 1;
   &:hover {
-    color: white;
+    color: #A00000;
     text-decoration: none;
   }
 }
@@ -86,9 +92,9 @@ footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid $grayMediumLight;
-  color: $grayLight;
+  color: #500000;
   a {
-    color: $gray;
+    color: #200000;
     &:hover {
       color: $grayDarker;
     }
@@ -121,7 +127,7 @@ footer {
 aside {
   section {
     padding: 10px 0;
-    border-top: 1px solid $grayLighter;
+    border-top: 1px solid $red;
     &:first-child {
       border: 0;
       padding-top: 0;
@@ -180,9 +186,9 @@ input {
   li {
     overflow: auto;
     padding: 10px 0;
-    border-top: 1px solid $grayLighter;
+    border-top: 1px solid $red;
     &:last-child {
-      border-bottom: 1px solid $grayLighter;
+      border-bottom: 1px solid $red;
     }
   }
 }
@@ -193,7 +199,7 @@ input {
 
   li {
     padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
+    border-top: 1px solid $red;
   }
 }
 
@@ -235,6 +241,7 @@ input {
   overflow: auto;
   margin-top: 10px;
   .gravatar {
+    color: $red;
     margin: 1px 1px;
   }
 }
@@ -244,4 +251,3 @@ aside {
     margin-bottom: 5px;
   }
 }
-
