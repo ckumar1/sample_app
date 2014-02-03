@@ -14,23 +14,37 @@
 
 	</aside>
       <div class="span8">
-        <h3>Micropost Feed</h3>
+        <h3>MicroMessage Feed</h3>
         <%= render 'shared/feed' %>
       </div>
     </div>
 <% else %>
-    <div class="center hero-unit">
-      <h1>Welcome to the Sample App</h1>
+    <div class="row">
+    <div class="center col-md-8">
+      <h1>Welcome to MicroMessage</h1>
 
       <h2>
         This is the home page for the
-        <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
-        sample application.
+        MicroMessage application.
       </h2>
-
-      <%= link_to "Sign up now!", signup_path,
-                  class: "btn btn-large btn-primary" %>
     </div>
+  
+  <div class="span3 col-md-4 offset4" >
+    <%= form_for(:session, url: sessions_path) do |f| %>
 
-    <%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+
+        <%= f.submit "Sign in", class: "btn btn-large btn-danger" %>
+    <% end %>
+
+    <p>New user? <%= link_to "Sign up now!", signup_path , {:style=>'color:#FF0000;'}%></p>
+  </div>
+  
+</div>
+
+    
 <% end %>
